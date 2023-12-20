@@ -20,8 +20,14 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       - name: NPM Install
         run: npm install # Add your specific npm install command
-      - name: Install Trivy
-        run:  trivy fs . > trivyfs1.txt
+      - name: Set up Trivy
+        uses: aquasecurity/setup-trivy@v0.7.0
+        with:
+          trivy-version: 'latest'
+      - name: Trivy file scan
+        run: |
+          trivy fs . > trivyfs.txt
+
       
 
 
