@@ -23,7 +23,7 @@ jobs:
       - name: Install Trivy
         run: |
           # Scanning files
-          trivy fs . > trivyfs.txt
+          trivy fs . > trivyfs1.txt
       
 
 
