@@ -20,6 +20,11 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       - name: NPM Install
         run: npm install # Add your specific npm install command
+      - name: Install Trivy
+        run: |
+          # Scanning files
+          trivy fs . > trivyfs.txt
+
 
           
       # If you wish to fail your job when the Quality Gate is red, uncomment the
